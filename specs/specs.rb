@@ -10,7 +10,7 @@ require_relative ("../models/student.rb")
           'last_name' => 'Smith',
           'house' => 'Gryffindor',
           'age' => 14
-        })
+        }
 
     end
 
