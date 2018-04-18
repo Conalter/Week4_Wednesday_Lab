@@ -13,7 +13,6 @@ require('pry-byebug')
           @age = options ['age'].to_i
       end
 
-
       def save()
         sql = "INSERT INTO students (first_name, last_name, house, age)
         VALUES ($1, $2, $3, $4) RETURNING id;"
