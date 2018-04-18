@@ -36,4 +36,12 @@ require('pry-byebug')
         sql = "DELETE FROM students"
         SqlRunner.run(sql)
       end
+
+      def self.find_by_id(id)
+        sql = "SELECT * FROM students WHERE id = $1;"
+        value = [id]
+        result = SqlRunner.run(sql, value)
+        Student.new(result[0])
+      end
+
     end #end of class
