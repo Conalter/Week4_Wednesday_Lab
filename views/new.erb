@@ -11,7 +11,7 @@
       <label for="house_id">House:</label>
       <select name="house_id" id="house_id">
         <% @houses.each do |house| %>
-        <option value = <%= house.name %> ><%=house.name%></option>
+        <option value = <%= house.id %> ><%=house.name%></option>
         <% end %>
       </select>
 

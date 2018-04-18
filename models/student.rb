@@ -3,7 +3,7 @@ require('pry-byebug')
 
     class Student
 
-      attr_reader :first_name, :last_name, :house_id, :age
+      attr_reader :first_name, :last_name, :house_id, :age, :id
 
       def initialize(options)
           @id = options ['id'].to_i
@@ -41,6 +41,13 @@ require('pry-byebug')
         value = [id]
         result = SqlRunner.run(sql, value)
         Student.new(result[0])
+      end
+
+      def get_house
+          sql = "SELECT * FROM houses WHERE id = $1"
+          values = [@house_id]
+          result = SqlRunner.run(sql, values)
+          return House.new(result[0])
       end
 
     end #end of class

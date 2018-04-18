@@ -33,4 +33,11 @@ require('pry-byebug')
         SqlRunner.run(sql)
       end
 
+      def self.find_by_id(id)
+        sql = "SELECT * FROM houses WHERE id = $1;"
+        value = [id]
+        result = SqlRunner.run(sql, value)
+        House.new(result[0])
+      end
+
     end #end of class
