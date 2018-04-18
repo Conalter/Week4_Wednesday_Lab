@@ -1,11 +1,16 @@
 require 'minitest/autorun'
 require 'minitest/rg'
-require_relative ("../student.rb")
+require_relative ("../models/student.rb")
 
   class TestStudent < MiniTest::Test
 
     def setup
-        @student1 = Student.new("Jimmy", "Smith", "Gryffindor", 14)
+        @student1 = Student.new({
+          'first_name' => 'Jimmy',
+          'last_name' => 'Smith',
+          'house' => 'Gryffindor',
+          'age' => 14
+        })
 
     end
 
