@@ -22,4 +22,18 @@ require('pry-byebug')
         @id = result[0]["id"].to_i
       end
 
+      def self.all()
+        sql = 'SELECT * FROM students'
+        result = SqlRunner.run(sql)
+        return map_students(result)
+      end
+
+      def self.map_students(student_data)
+        return student_data.map {|student_hash| Student.new(student_hash)}
+      end
+
+      def self.delete_all
+        sql = "DELETE FROM students"
+        SqlRunner.run(sql)
+      end
     end #end of class
